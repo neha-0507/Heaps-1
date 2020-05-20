@@ -1,0 +1,11 @@
+#Time Complexity - o(nlogk)
+#Space Complexity - o(1)
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        minHeap=[-2**32]*k
+        heapq.heapify(minHeap)
+        for i in nums:
+            if i>minHeap[0]:
+                heapq.heappushpop(minHeap, i)
+        return minHeap[0]
+        
